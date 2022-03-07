@@ -38,11 +38,38 @@ TEST_CASE("Good input") {
 													 "@-@@@@@-@\n"
 													 "@-------@\n"
 													 "@@@@@@@@@"));
+	CHECK(nospaces(mat(13, 5, '@', '-')) == nospaces("@@@@@@@@@@@@@\n"
+													"@-----------@\n"
+													"@-@@@@@@@@@-@\n"
+													"@-----------@\n"
+													"@@@@@@@@@@@@@)"));
+	CHECK(nospaces(mat(3, 5, '$', '+')) == nospaces("$$$\n"
+													"$+$\n"
+													"$+$\n"
+													"$+$\n"
+													"$$$"));
+	CHECK(nospaces(mat(1, 1, '#', '-')) == nospaces("#"));
 	/* Add more test here */
 }
 
 TEST_CASE("Bad input") {
     CHECK_THROWS(mat(10, 5, '$', '%'));
+	CHECK_THROWS(mat(10, 6, '$', '%'));
+	CHECK_THROWS(mat(5, 4, '$', '%'));
+	CHECK_THROWS(mat(-3, 5, '$', '%'));
+	CHECK_THROWS(mat(7, -5, '$', '%'));
+	CHECK_THROWS(mat(7, 5, '$', '\n'));
+	CHECK_THROWS(mat(7, 5, '$', '\t'));
+	CHECK_THROWS(mat(7, 5, '$', ' '));
+	CHECK_THROWS(mat(7, 5, '$', '\r'));
+	CHECK_THROWS(mat(7, 5, '\n', '$'));
+	CHECK_THROWS(mat(7, 5, '\t', '$'));
+	CHECK_THROWS(mat(7, 5, ' ', '$'));
+	CHECK_THROWS(mat(7, 5, '\r', '$'));
+
+	CHECK_THROWS(mat(6, 5, '\t', '$'));
+	CHECK_THROWS(mat(7, 4, ' ', '$'));
+	CHECK_THROWS(mat(6, 6, '\r', '$'));
     /* Add more test here */
 }
 
