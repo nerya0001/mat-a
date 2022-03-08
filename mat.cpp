@@ -3,11 +3,10 @@
 #include <cctype>
 #include "mat.hpp"
 using namespace std;
+using namespace ariel;
 
 
-namespace ariel {
-    
-    string mat(int a, int b, char c, char d) {
+string ariel::mat(int a, int b, char c, char d) {
         if (a % 2 == 0 || b % 2 == 0 || a <= 0 || b <= 0) {
             throw invalid_argument("bad input (a/b)");
         }
@@ -53,4 +52,3 @@ namespace ariel {
 
 
     }
-}
