@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cctype>
+#include <vector>
 #include "mat.hpp"
 using namespace std;
 using namespace ariel;
@@ -15,7 +16,20 @@ string ariel::mat(int a, int b, char c, char d) {
             throw invalid_argument("bad input (c/d)");
         }
 
-        char m[b][a];
+        vector<vector<char>> m(b);
+        for(int i = 0; i < b; i++) {
+            m[i] = vector<char>(a);
+        }
+        // char m[b][a];
+        string ans;
+
+
+        if (a == 1 && b > 1) {
+            for (int i = 0; i < b; i++) {
+                ans += c;
+            }
+            return ans;
+        }
 
 
         for (int i = 0, j = a - 1, f = b - 1; i < b; i++, j--, f--) {
@@ -39,7 +53,7 @@ string ariel::mat(int a, int b, char c, char d) {
             }
         }
 
-        string ans;
+        
 
         for (int i = 0; i < b; i++) {
             for (int j = 0; j < a; j ++) {

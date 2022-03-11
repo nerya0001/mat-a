@@ -12,6 +12,8 @@
 using namespace std;
 
 int main() {
+	cout << ariel::mat(15, 1, '!', '@') << endl;
+	cout << ariel::mat(1, 15, '!', '@') << endl;
 	cout << ariel::mat(9, 7, '@', '-') << endl;
 /* Should print:
 @@@@@@@@@
